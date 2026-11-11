@@ -2,8 +2,6 @@
 
 ## Evidence and scope
 
-The repository was organized using the 26 supplied Python files. The supplied supplementary material, *Approximating the semantic space – Supplementary material.pdf*, was read to check the supplementary tables and figures. Access to the Nature article was blocked; main-article numbering follows the labels in `51_tables_results.py`, rather than an independent inspection of the article.
-
 No participant data, original environment lockfile, model revision identifiers or original transcript-preprocessing script was supplied. The code starts from already prepared German transcripts. The header-only input templates describe what the scripts read; they do not recover the original data collection, exclusions or preprocessing.
 
 ## Main choices

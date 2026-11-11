@@ -1,0 +1,4 @@
+-r requirements.txt
+umap-learn
+networkx
+plotly

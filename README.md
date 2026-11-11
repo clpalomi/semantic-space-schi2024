@@ -1,65 +1,107 @@
-# Approximating the Semantic Space
+# Approximating the semantic space
 
-### Word embedding techniques in psychiatric speech analysis
+Code supplied by Claudio Palominos for *Approximating the semantic space: Word embedding techniques in psychiatric speech analysis*, **Schizophrenia** (2024).
 
-This repository contains the code and scripts developed for the analyses presented in the research article:
+Publication: https://doi.org/10.1038/s41537-024-00524-7
 
-**Palominos et al. (2024).** *Approximating the semantic space: Word embedding techniques in psychiatric speech analysis.* **Schizophrenia**.
+The scripts are organized from metadata and speech measures to statistics and, finally, figures. They use the attached author scripts; no replacement analysis or clinical data has been added. This is a reconstruction of the supplied workflow, not a claim that the published numerical results have been independently reproduced.
 
-**Publication:** https://doi.org/10.1038/s41537-024-00524-7
+## Before running
 
-## Overview
+Use Python 3.10 or 3.11 for the supplied spaCy 3.6 model. Historical library versions and model revisions were not supplied. The dependency file lists inferred requirements, not the original environment lockfile.
 
-This project investigates the application of word embedding techniques to characterize semantic representations in psychiatric speech.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pip install https://github.com/explosion/spacy-models/releases/download/de_core_news_lg-3.6.0/de_core_news_lg-3.6.0-py3-none-any.whl
+mkdir -p data/texts data/metadata results/tables results/additional/umap results/additional/summaries
+```
 
-The study explores how computational representations of lexical meaning can be used to quantify properties of semantic space and identify differences between clinical and healthy populations.
+The original speech and clinical data cannot be distributed here. Prepare your own authorized data following [the input structure](docs/DATA_STRUCTURE.md). Files under `data/templates/` contain headers only; the scripts expect the Excel files described in the documentation.
 
-The analyses involve different word embedding approaches, including fastText, BERT, and Sentence-BERT, to examine semantic relationships and the organization of lexical representations in speech.
+All personal filesystem paths have been replaced with the generic paths in [pipeline/paths.py](pipeline/paths.py). Run commands **from the repository root**, using `python -m` as below. Input and generated output directories are ignored by Git.
 
-## Repository Contents
+The NLP stages require downloaded models: `aari1995/German_Semantic_STS_V2`, `dbmdz/bert-base-german-cased`, German fastText `cc.de.300.bin`, and spaCy `de_core_news_lg`. The first model downloads need network access and sufficient memory/disk for full embeddings. The existing fastText download calls use the current working directory. Do not substitute models between stages: the supplied alternatives produce different representations.
 
-The repository is intended to provide the scripts necessary to reproduce the computational analyses reported in the publication.
+Stage 03 includes the author-approved tensor-to-NumPy conversion before the existing centroid calculation. Its pooling and centroid measures are tested with synthetic PyTorch outputs; full NLP model downloads and clinical results remain unverified.
 
-The code covers the following general stages:
+## Analysis order
 
-1. **Data preprocessing:** Preparation of linguistic data for computational analysis.
-2. **Semantic representations:** Extraction of word and sentence embeddings using pretrained language models.
-3. **Semantic space analysis:** Computation of measures characterizing the structure and organization of semantic representations.
-4. **Statistical analysis:** Evaluation and comparison of semantic measures across clinical groups.
-5. **Results and visualization:** Generation of analytical outputs supporting the reported findings.
+```bash
+python -m pipeline.01_demographics
+python -m pipeline.02_length
+python -m pipeline.03_sentence_embeddings
+python -m pipeline.04_word_embeddings
+python -m pipeline.05_distance_norms
+python -m pipeline.06_convex_hull
+python -m pipeline.07_demographic_tables
+python -m pipeline.08_semantic_regression
+python -m pipeline.09_displacement_dispersion
+python -m pipeline.10_group_differences
+python -m pipeline.11_convex_hull_regression
+```
 
-Specific scripts and their execution order will be documented as the repository is organized.
+Stage 01 creates `data/metadata/groups.xlsx`. If you already have an appropriately structured `groups.xlsx`, start at stage 02. Stage 05 contains additional distance-norm calculations; the subsequent main tables do not depend on it.
 
-## Requirements
+Stage 06 repeats the author's manually selected dimensionalities (3–10D) with the supplied German sentence model and reduction method. To calculate only the main 5D case:
 
-The analyses were primarily implemented in Python using natural language processing and statistical analysis libraries.
+```bash
+python -m pipeline.06_convex_hull --dimensions 5
+```
 
-A complete list of dependencies, software versions, and installation instructions will be provided.
+Run all dimensions before stage 11. Its regression summaries are printed to the terminal, as in the supplied code. To keep a report, redirect a stage's output to a text file under `results/`.
 
-## Data Availability
+| Stage | Calculation | Main outputs under `results/` |
+| --- | --- | --- |
+| 02 | Speech and sentence length, group summaries, Bonferroni comparisons | `df_stats_length.pkl`, `summ_stats_length.xlsx`, `pvalue_stats_length.xlsx` |
+| 03 | Sentence similarity, centroid, dispersion, displacement | `df_semsim_sent_length.pkl`, `df_centroids_sents_mono.pkl` |
+| 04 | fastText and BERT similarity sequences and derived measures | `df_semsim_dist_length.pkl`, `df_centroids_words.pkl` |
+| 05 | fastText distance norms | `df_distances_norms.pkl` |
+| 06 | Sentence convex hulls by dimension | `df_sent_convexhull_{3..10}D_mono.pkl` |
+| 07 | Demographic description and comparisons | `tables/table_1.xlsx`, `tables/table_2.xlsx` |
+| 08 | Mixed regressions for semantic variables | `regression_table.xlsx`, `regression_table_signif.xlsx` |
+| 09 | Word displacement and sentence dispersion/displacement regressions | Terminal summaries |
+| 10 | Kruskal–Wallis group comparisons | `tables/table_4.xlsx` (Table S2 in the SM) |
+| 11 | Log volume and log area regressions, 3–10D | Terminal summaries |
 
-The analyses use research data collected from clinical and healthy populations. Access to the original speech data may be subject to ethical approval, participant confidentiality, and institutional data-sharing restrictions.
+## Figures: final stage
 
-Please refer to the associated publication for further information on data availability.
+After generating the required measures, run:
 
-## Reproducibility
+```bash
+python -m pipeline.12_fig_centroids
+python -m pipeline.13_fig_length_similarity
+python -m pipeline.14_fig_group_effects
+python -m pipeline.15_fig_symptoms
+python -m pipeline.16_fig_convex_hull_illustration
+python -m pipeline.17_fig_length
+```
 
-This repository aims to facilitate the reproducibility and extension of the published analyses.
+These scripts save figures under `results/`. For a machine without a display, prefix a command with `MPLBACKEND=Agg`. Stage 04 also retains the original per-sample slope diagnostic plots because its plotting function returns a feature used in the analysis.
 
-Additional documentation will be provided to describe the computational environment, preprocessing procedures, model configurations, and execution of individual scripts.
+| Figure script | Source identification / supplementary check |
+| --- | --- |
+| 12 | Figure 1: sentence-centroid t-SNE, picture/group separation; original in-sample KNN scores |
+| 13 | Figure 2 and Figure S2: length versus mean semantic similarity |
+| 14 | Figure 3: the author's fixed coefficients/p-values, matching Table S3; **not recomputed from a new dataset** |
+| 15 | Figure 5 and Figure S3: symptom correlations; also the supplied partial-correlation plot |
+| 16 | Convex-hull illustration using the supplied seeded random points; not clinical observations; figure number unconfirmed |
+| 17 | Figure S1: length comparisons, using Bonferroni as specified in the SM |
 
-## Citation
+Figure numbers in the main article follow the labels inside the supplied scripts. The Nature page could not be retrieved in this environment; the attached supplementary PDF was read and checked. See [reproducibility notes](docs/REPRODUCIBILITY.md) for source discrepancies and limits.
 
-If you use this code or build upon the methodology, please cite the original publication:
+## Additional analyses and provenance
 
-Palominos et al. (2024). *Approximating the semantic space: Word embedding techniques in psychiatric speech analysis.* Schizophrenia.
+[additional/](additional/README.md) retains distinct earlier versions, perplexity/network analyses, multilingual comparisons, and participant-specific geometry plots. Their filenames retain the original ordering. They are not prerequisites for the main workflow and should not be run as a numbered batch. Their outputs are isolated under `results/additional/`.
 
-https://doi.org/10.1038/s41537-024-00524-7
+Identical text helpers are shared in `pipeline/text_measures.py`. Numerical functions using script-specific model globals remain local. The repeated identical 9D calculation was removed. Calculation formulas, filters, model names, seeds and statistical conventions are otherwise preserved, apart from the explicitly approved corrections documented in [the change record](docs/REPRODUCIBILITY.md). [source_manifest.json](docs/source_manifest.json) records every supplied Python file's hash and the original line ranges used to organize the stages.
 
-## License
+## Validation
 
-License information will be added to the repository.
+```bash
+python -m compileall -q pipeline additional
+python -m unittest discover -s tests -v
+```
 
-## Contact
-
-For questions about the analyses, implementation, or reproducibility, please open a GitHub issue or contact the corresponding authors of the publication.
+The tests use temporary synthetic inputs to check text parsing, metadata/length stages, statistics exports and string-group symptom plotting. They do not download NLP models or reproduce clinical effect sizes. No original participant data or generated study results are committed.

@@ -1,0 +1,783 @@
+{
+  "attachments": {
+    "0_demographics.py": {
+      "sha256": "007f3f291f2845192c78e5cad7a197dd2f48fd77812b25c8bf7190c699e62dac",
+      "lines": 36
+    },
+    "11_tSNE_centroids.py": {
+      "sha256": "c163c483a5b6a0b07b61e8849019b51c53381c044836383c58ff5d9e7f6a3a6f",
+      "lines": 49
+    },
+    "12_analysis_all_var.py": {
+      "sha256": "4220fdec7d57fb4ba6bf785eb3c52223a27d1e9355620cef70c53c3b4b8885de",
+      "lines": 224
+    },
+    "1_geometry_semspace.py": {
+      "sha256": "5b6ac99fb49534bfc058f19c78f247bf811d268f199ac331006523965ec0eb28",
+      "lines": 426
+    },
+    "1_length_semsim_vars.py": {
+      "sha256": "c1ad99dd1a805279622dbc5f658ffc349164fcb09ba44f28669d04b3742816b4",
+      "lines": 1096
+    },
+    "1_semsim_sz.py": {
+      "sha256": "1abd88247b2883fefe2d5e44cd8073a494aa288c704be2eafa7cd07e265baac5",
+      "lines": 310
+    },
+    "2_convex_hull_german.py": {
+      "sha256": "36e73e4599acab6b2e62b5a1833d30980fd888120684a2ae254e13d9c9f7ebb4",
+      "lines": 627
+    },
+    "2_convex_hull_german_alternative_model.py": {
+      "sha256": "a1d40bc777c22e8dab7ae435debc5a80ded96a017372f6b61df52d418b01d31e",
+      "lines": 525
+    },
+    "2_perplexity_sz.py": {
+      "sha256": "b1d563313587e5ede815c1bf163a5db3710809130f958ab8973a508b3cfb8589",
+      "lines": 502
+    },
+    "31_centroids_santander.py": {
+      "sha256": "e5d7f86ff922dcce86643efbb3d2d5b2a5e508a647cb3e874c7b8792cea89ec2",
+      "lines": 364
+    },
+    "32_convex_hull_german.py": {
+      "sha256": "9ac7b41130d748fb04f9e9b1f705655acadde0ab8263d110ab6a2a5f4bd95027",
+      "lines": 353
+    },
+    "3_matrix_semsim_sz.py": {
+      "sha256": "c83048bbe710ad19f2516443ea7ccec0cfe0bcaa0c482f39d6dac96b2bfb040d",
+      "lines": 706
+    },
+    "41_plot_convex_hull.py": {
+      "sha256": "e97cf582b00e14144e0648b65c334dd4c058b39aa96182b1e01edb28c0d7bc71",
+      "lines": 146
+    },
+    "4_aggregated_relations.py": {
+      "sha256": "c5027ab032637ab32aef7a48362cf49e9091e3b63d6b10b1ab8b70b70b112037",
+      "lines": 276
+    },
+    "51_tables_results.py": {
+      "sha256": "3fdf98aa417ddddae69dc0e752c5735e91e07bc372feb8d72f0a3731a9d37d76",
+      "lines": 1680
+    },
+    "5_summary_differences.py": {
+      "sha256": "4215e06f9b3e4cd1395b5ff157a826371808f8ca24ef62c97398b9cd5af7302d",
+      "lines": 131
+    },
+    "5_summary_differences_mixed_effects.py": {
+      "sha256": "31910c3e5bf14f3879343143f78ff01c648bb4855c9e403c40c7bb25e0123f6c",
+      "lines": 85
+    },
+    "61_diff_coref_models.py": {
+      "sha256": "30bc2cff4226bd06c18a952efff37a31d5f865ce547fb1af42761d27cc54b186",
+      "lines": 171
+    },
+    "6_run_several_summ.py": {
+      "sha256": "d0c869f5f9d866fad58489c371855eb1acf652ab0cd186f9b9587b7d81b0f848",
+      "lines": 177
+    },
+    "71_geometry_centroids.py": {
+      "sha256": "4826a2c277eada2fa173deded8f467092347373799da21579ecac34cada15b31",
+      "lines": 514
+    },
+    "7_append_summaries.py": {
+      "sha256": "91820fbafcd6afdd44dcd20fd1a3c73989e2d8723d404ceb6836f31ae5dfc880",
+      "lines": 37
+    },
+    "7_symptoms.py": {
+      "sha256": "f5b1091e03f4503e329c99a0c1112dcec574c5168019a1b8989cf320f624078d",
+      "lines": 98
+    },
+    "8_length.py": {
+      "sha256": "fe50eb34b5cc950d013e69028a1f0ee7cd9d7d8e47605fb38147768ec9f23253",
+      "lines": 565
+    },
+    "8_length_modified.py": {
+      "sha256": "8e40a6a47226c72ddf9421f6adbe04a6f568deeaddb5c7d81b81640bdb6cf9e7",
+      "lines": 964
+    },
+    "9_perp_length_semsim.py": {
+      "sha256": "0d40d3262966548d7080d751ca49c8193fd4d473fcdbba1bf023deb5c15dfcf7",
+      "lines": 169
+    },
+    "semsim_symptoms.py": {
+      "sha256": "68485ad64b3a3a4568adb8327fdfedd0a0d68aeba29cb30821f0b5e70967221e",
+      "lines": 175
+    }
+  },
+  "extractions": [
+    {
+      "file": "pipeline/01_demographics.py",
+      "sources": [
+        {
+          "file": "0_demographics.py",
+          "lines": [
+            1,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/02_length.py",
+      "sources": [
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            1,
+            41
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            55,
+            105
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            434,
+            461
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            469,
+            520
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/03_sentence_embeddings.py",
+      "sources": [
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            1,
+            41
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            48,
+            105
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            220,
+            236
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            253,
+            270
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            381,
+            428
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            434,
+            441
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            535,
+            636
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/04_word_embeddings.py",
+      "sources": [
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            1,
+            41
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            55,
+            105
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            154,
+            202
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            273,
+            309
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            365,
+            428
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            434,
+            441
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            642,
+            652
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            714,
+            873
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/05_distance_norms.py",
+      "sources": [
+        {
+          "file": "1_geometry_semspace.py",
+          "lines": [
+            1,
+            309
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/06_convex_hull.py",
+      "sources": [
+        {
+          "file": "2_convex_hull_german_alternative_model.py",
+          "lines": [
+            1,
+            318
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/07_demographic_tables.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            975,
+            1053
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/08_semantic_regression.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1060,
+            1305
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/09_displacement_dispersion.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            429,
+            477
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/10_group_differences.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1319,
+            1382
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/11_convex_hull_regression.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            482,
+            613
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/12_fig_centroids.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            23,
+            133
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/13_fig_length_similarity.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            150,
+            247
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/14_fig_group_effects.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            254,
+            301
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/15_fig_symptoms.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            617,
+            959
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/16_fig_convex_hull_illustration.py",
+      "sources": [
+        {
+          "file": "41_plot_convex_hull.py",
+          "lines": [
+            1,
+            146
+          ]
+        }
+      ]
+    },
+    {
+      "file": "pipeline/17_fig_length.py",
+      "sources": [
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            1,
+            41
+          ]
+        },
+        {
+          "file": "1_length_semsim_vars.py",
+          "lines": [
+            107,
+            150
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/11_tSNE_centroids.py",
+      "sources": [
+        {
+          "file": "11_tSNE_centroids.py",
+          "lines": [
+            1,
+            49
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/12_analysis_all_var.py",
+      "sources": [
+        {
+          "file": "12_analysis_all_var.py",
+          "lines": [
+            1,
+            224
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/1_semsim_sz.py",
+      "sources": [
+        {
+          "file": "1_semsim_sz.py",
+          "lines": [
+            1,
+            310
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/2_convex_hull_german.py",
+      "sources": [
+        {
+          "file": "2_convex_hull_german.py",
+          "lines": [
+            1,
+            627
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/2_perplexity_sz.py",
+      "sources": [
+        {
+          "file": "2_perplexity_sz.py",
+          "lines": [
+            1,
+            502
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/31_centroids_santander.py",
+      "sources": [
+        {
+          "file": "31_centroids_santander.py",
+          "lines": [
+            1,
+            364
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/32_convex_hull_german.py",
+      "sources": [
+        {
+          "file": "32_convex_hull_german.py",
+          "lines": [
+            1,
+            353
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/3_matrix_semsim_sz.py",
+      "sources": [
+        {
+          "file": "3_matrix_semsim_sz.py",
+          "lines": [
+            1,
+            706
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/4_aggregated_relations.py",
+      "sources": [
+        {
+          "file": "4_aggregated_relations.py",
+          "lines": [
+            1,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/5_summary_differences.py",
+      "sources": [
+        {
+          "file": "5_summary_differences.py",
+          "lines": [
+            1,
+            131
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/5_summary_differences_mixed_effects.py",
+      "sources": [
+        {
+          "file": "5_summary_differences_mixed_effects.py",
+          "lines": [
+            1,
+            85
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/61_diff_coref_models.py",
+      "sources": [
+        {
+          "file": "61_diff_coref_models.py",
+          "lines": [
+            1,
+            171
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/6_run_several_summ.py",
+      "sources": [
+        {
+          "file": "6_run_several_summ.py",
+          "lines": [
+            1,
+            177
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/7_append_summaries.py",
+      "sources": [
+        {
+          "file": "7_append_summaries.py",
+          "lines": [
+            1,
+            37
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/7_symptoms.py",
+      "sources": [
+        {
+          "file": "7_symptoms.py",
+          "lines": [
+            1,
+            98
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/8_length.py",
+      "sources": [
+        {
+          "file": "8_length.py",
+          "lines": [
+            1,
+            565
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/8_length_modified.py",
+      "sources": [
+        {
+          "file": "8_length_modified.py",
+          "lines": [
+            1,
+            964
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/9_perp_length_semsim.py",
+      "sources": [
+        {
+          "file": "9_perp_length_semsim.py",
+          "lines": [
+            1,
+            169
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/semsim_symptoms.py",
+      "sources": [
+        {
+          "file": "semsim_symptoms.py",
+          "lines": [
+            1,
+            175
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/tables_other_models.py",
+      "sources": [
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "file": "51_tables_results.py",
+          "lines": [
+            1410,
+            1673
+          ]
+        }
+      ]
+    },
+    {
+      "file": "additional/geometry_figures.py",
+      "sources": [
+        {
+          "file": "71_geometry_centroids.py",
+          "lines": [
+            1,
+            514
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_helpers": {
+    "source": "1_length_semsim_vars.py",
+    "functions": [
+      "calculate_diffs",
+      "crossings_average",
+      "length_statistics",
+      "read_files_sent",
+      "sentence_lengths",
+      "slope_sign_changes"
+    ]
+  },
+  "authorized_dimension_changes": "Author confirmed manual repetition for each dimension. The 8D call, two sample-count thresholds, filename and timing label are parameterized for 3\u201310D, preserving the original d+1 hull threshold. Table regressions repeat for the same dimensions.",
+  "path_changes": "Generic paths in pipeline/paths.py; generated pickle reads moved from raw-data locations to their producers\u2019 result locations. Additional outputs are isolated under results/additional.",
+  "extraction_changes": "Original calculation lines retained; imports and intermediate file loads added for independent stages. Participant-specific undefined plotting block (1_length_semsim_vars.py:657\u2013710) omitted. Final interactive diagnostics omitted from core feature producers. Duplicate 9D calculation removed; identical pure text helper bodies shared.",
+  "approved_corrections": [
+    "Figure S1: FDR-BH replaced by Bonferroni as confirmed by the author and supplementary material.",
+    "Symptoms: numeric-only correlation matrices; dummy encoding of string groups in partial-correlation p-values, consistent with the supplied coefficient calculation.",
+    "Sentence centroid: convert pooled PyTorch embeddings with .detach().cpu().numpy() before the unchanged NumPy centroid, cosine-dispersion and Euclidean-distance formulas; explicitly approved by the author."
+  ],
+  "figure_io_changes": "Existing commented savefig calls in the length/similarity plots activated; independent canvases for figure panels; distinct filenames for the average-sentence-length diagnostics. No plotted quantities changed.",
+  "omitted_redundant_sections": [
+    "51_tables_results.py:305\u2013422 repeated mixed-model calls and manually pasted terminal-output export; live computation/export retained in pipeline/08_semantic_regression.py."
+  ],
+  "supplementary_material": {
+    "file": "Approximating the semantic space - Supplementary material.pdf",
+    "sha256": "040bec7150a34e5dc8e0e14743806358a015abd1060cbb4ae3253eb35fde5200",
+    "use": "Supplementary table/figure mapping; numeric results not used as replacement data."
+  }
+}

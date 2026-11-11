@@ -1,0 +1,18 @@
+# Dependency names inferred from the supplied main scripts.
+# Historical package versions and model revisions were not supplied.
+numpy<2
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+statsmodels
+openpyxl
+torch
+transformers<5
+sentence-transformers
+spacy==3.6.0
+fasttext-wheel
+# Verified for the supplied high-dimensional reduction; newer versions may reject it.
+openTSNE==1.0.4
+statannotations

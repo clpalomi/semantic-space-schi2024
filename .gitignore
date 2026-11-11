@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+/data/texts/
+/data/metadata/
+/data/santander/
+/results/
+/models/
+/cache/
+cc.de.300.bin*

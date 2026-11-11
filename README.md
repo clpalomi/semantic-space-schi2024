@@ -4,7 +4,7 @@ Code supplied by Claudio Palominos for *Approximating the semantic space: Word e
 
 Publication: https://doi.org/10.1038/s41537-024-00524-7
 
-The scripts are organized from metadata and speech measures to statistics and, finally, figures. They use the attached author scripts; no replacement analysis or clinical data has been added. This is a reconstruction of the supplied workflow, not a claim that the published numerical results have been independently reproduced.
+The scripts are organized from metadata and speech measures to statistics and, finally, figures. No replacement analysis or clinical data has been added. This is a reconstruction of the supplied workflow, not a claim that the published numerical results have been independently reproduced.
 
 ## Before running
 
@@ -89,13 +89,13 @@ These scripts save figures under `results/`. For a machine without a display, pr
 | 16 | Convex-hull illustration using the supplied seeded random points; not clinical observations; figure number unconfirmed |
 | 17 | Figure S1: length comparisons, using Bonferroni as specified in the SM |
 
-Figure numbers in the main article follow the labels inside the supplied scripts. The Nature page could not be retrieved in this environment; the attached supplementary PDF was read and checked. See [reproducibility notes](docs/REPRODUCIBILITY.md) for source discrepancies and limits.
+Figure numbers in the main article follow the labels inside the supplied scripts. See [reproducibility notes](docs/REPRODUCIBILITY.md) for source discrepancies and limits.
 
 ## Additional analyses and provenance
 
-[additional/](additional/README.md) retains distinct earlier versions, perplexity/network analyses, multilingual comparisons, and participant-specific geometry plots. Their filenames retain the original ordering. They are not prerequisites for the main workflow and should not be run as a numbered batch. Their outputs are isolated under `results/additional/`.
+[additional/](additional/README.md) retains distinct earlier versions, perplexity/network analyses, multilingual comparisons, and participant-specific geometry plots. They are not prerequisites for the main workflow and should not be run as a numbered batch. Their outputs are isolated under `results/additional/`.
 
-Identical text helpers are shared in `pipeline/text_measures.py`. Numerical functions using script-specific model globals remain local. The repeated identical 9D calculation was removed. Calculation formulas, filters, model names, seeds and statistical conventions are otherwise preserved, apart from the explicitly approved corrections documented in [the change record](docs/REPRODUCIBILITY.md). [source_manifest.json](docs/source_manifest.json) records every supplied Python file's hash and the original line ranges used to organize the stages.
+Identical text helpers are shared in `pipeline/text_measures.py`. Numerical functions using script-specific model globals remain local.
 
 ## Validation
 

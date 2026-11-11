@@ -39,7 +39,6 @@ No participant data, original environment lockfile, model revision identifiers o
 | Table S8 | Stages 06 and 11: varying dimensions and log-volume regressions |
 | Figure S3 | Stage 15: per-picture symptom correlation heatmaps |
 
-The supplied script calls the main volume/area regressions on `log_volume`/`log_area`. The SM's Table S7 caption says area without making that transformation explicit; the code's transformation is retained. No reported coefficients were substituted into refitted regressions. The Figure 3 constants, already present in the author script, match the SM's Table S3 and are clearly labeled as fixed values.
 
 ## Resolved tensor compatibility correction
 

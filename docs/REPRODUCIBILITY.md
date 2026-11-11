@@ -19,10 +19,9 @@ No participant data, original environment lockfile, model revision identifiers o
 3. The duplicated 9D calculation in `2_convex_hull_german.py` was removed. The redundant manual pasted regression-output export is omitted from the main workflow. Repeated model calls from the table script are superseded by its own complete 12-variable regression/export section.
 4. The hardcoded single-participant block in `1_length_semsim_vars.py` (original lines 657–710) was dropped from feature extraction. It referenced undefined `sem_list`/`sem_list_1` and interrupted the subsequent word loop. Final interactive diagnostics referring to earlier versions of `df` were not carried into the core producers.
 5. Figure export calls already supplied but commented out in the length/similarity functions were enabled. Separate plot canvases prevent panels from overlaying; diagnostic filenames prevent overwriting the main length plots. No plotted values or regression calculations were changed.
-6. **Author-approved:** Figure S1 now uses Bonferroni instead of FDR-BH, matching the SM and the existing length-comparison table calculation.
-7. **Author-approved:** With `group` stored as strings, symptom correlation matrices use numeric columns only. Partial-correlation p-values dummy-code group with `drop_first=True`, matching the supplied coefficient calculation. No ordinal group mapping was invented.
+6. Figure S1 uses Bonferroni instead of FDR-BH, matching the SM and the existing length-comparison table calculation.
+7. With `group` stored as strings, symptom correlation matrices use numeric columns only. Partial-correlation p-values dummy-code group with `drop_first=True`, matching the supplied coefficient calculation. No ordinal group mapping was invented.
 
-The provenance manifest records original attachment hashes and source ranges. Some source ranges overlap because independent stages need their original imports or preparation blocks; identical pure helper implementations occur once in the main pipeline.
 
 ## Supplementary mapping
 

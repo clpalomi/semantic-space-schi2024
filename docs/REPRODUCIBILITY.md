@@ -42,21 +42,5 @@ No participant data, original environment lockfile, model revision identifiers o
 
 ## Resolved tensor compatibility correction
 
-**Author-approved and applied:** `sent_embedding_centroid` converts pooled embeddings with `.detach().cpu().numpy()` before the existing centroid, dispersion and distance formulas. This resolves the reproduced `TypeError: mean() got an unexpected keyword argument 'axis'` when NumPy receives a PyTorch tensor directly. A regression test exercises the actual pooling and centroid functions using synthetic PyTorch model outputs, verifies that padding is ignored, and checks centroid, cosine dispersion and cumulative Euclidean distance against independently specified expected values. The language model itself is not downloaded by this test.
+`sent_embedding_centroid` converts pooled embeddings with `.detach().cpu().numpy()` before the existing centroid, dispersion and distance formulas. This resolves the reproduced `TypeError: mean() got an unexpected keyword argument 'axis'` when NumPy receives a PyTorch tensor directly. A regression test exercises the actual pooling and centroid functions using synthetic PyTorch model outputs, verifies that padding is ignored, and checks centroid, cosine dispersion and cumulative Euclidean distance against independently specified expected values.
 
-## Remaining source-level limitations
-
-- Exact published values require the unavailable original prepared transcripts, clinical data, participant eligibility and historical model/software versions.
-- Some short-speech branches in the supplied feature code are incomplete. For example, the sentence loop's one-sentence branch does not assign every difference statistic later appended; `crossings_average` divides by `len(sequence)-1`. These edge cases are preserved rather than silently introducing new missing-data or exclusion rules.
-- `centroid_fasttext` starts from index 1; the reported `kurt` subtracts 3 after `scipy.stats.kurtosis`; BERT tokenization applies truncation before the later chunk loop. These original conventions are retained and may merit separate methodological review. They were not replaced with different definitions.
-- The supplied t-SNE/KNN separability code fits and predicts on the same observations. Its printed scores are in-sample descriptions, not held-out validation.
-- Partial-correlation p-values retain the source's Pearson test on residuals. No new multiple-testing or degrees-of-freedom procedure was introduced. Heatmaps display significant cells and encode other cells as zero, following the original code.
-- Several exploratory scripts require unavailable recurrence/coreference intermediates or interactive variables. They are listed in `additional/README.md` and are not included in the main run sequence.
-
-## Validation evidence
-
-All reorganized Python files were checked for syntax. Main-stage imports/name references were checked with Pyflakes. Synthetic smoke checks exercise input parsing, metadata and length outputs, mixed-regression table exports, dimension-specific regression inputs and symptom plots with string groups. Independent fixed-coefficient and seeded-point figures can be generated without research data.
-
-These checks establish code organization and executable data-independent paths. They do not validate clinical effect sizes, statistical convergence on the original dataset or end-to-end NLP model downloads. No successful published-result replication is claimed.
-
-The reduction helper was also exercised with actual PyTorch tensors, synthetic embeddings and openTSNE 1.0.4 at 3D, 5D, 8D and 10D; all produced finite positive convex-hull volumes. openTSNE emitted its warning that Barnes–Hut above 3D may be removed in a future version. The dependency is therefore pinned to the checked 1.0.4 version, without changing the author's reduction method. Fixed-coefficient and seeded-hull figure scripts generated 23 image files in a temporary directory. These checks used Python 3.12 and current numeric libraries; the full legacy spaCy/NLP environment was not installed or validated.
